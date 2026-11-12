@@ -142,7 +142,7 @@ export default function GeneralAdvisor() {
             <div 
               className="absolute inset-0 pointer-events-none"
               style={{
-                backgroundImage: 'url(/hero-finance.png)',
+                backgroundImage: 'url(${import.meta.env.BASE_URL}hero-finance.png)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundAttachment: 'local',

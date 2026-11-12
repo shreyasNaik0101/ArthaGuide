@@ -15,3 +15,5 @@
 .artha-view{animation-fill-mode:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.artha-view,.aurora{animation:none}.fa-loan-card:hover,.artha-view .bg-white.rounded-xl:hover{transform:none}}
 @media(max-width:1000px){.runway-panel{grid-template-columns:1fr}.runway-intro p{margin:5px 0}.runway-intro>span:last-child{margin-top:4px}.runway-intro h2{margin:8px 0}.runway-charts{gap:20px}}@media(max-width:600px){.runway-charts{grid-template-columns:1fr}.runway-panel{padding:20px}.runway-chart svg{max-height:110px}}
+
+.guided-only .fa-paypal,.guided-only .fa-intake,.guided-only .fa-explanation,.guided-only .fa-tabs>button:nth-child(2){display:none}.guided-only .fa-work-grid{grid-template-columns:1fr}

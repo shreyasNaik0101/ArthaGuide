@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: arthaguide-demo-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements-demo.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: CORS_ORIGINS
+        value: https://shreyasnaik0101.github.io
+      - key: DEMO_DB_PATH
+        value: /tmp/arthaguide-demo.sqlite3

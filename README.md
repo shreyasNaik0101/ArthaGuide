@@ -136,3 +136,8 @@ From `frontend`: `node --test tests/financialContext.test.js`, then `npm run bui
 **Built for this event:** repair-date gap, deterministic repayment stress test and timeline, two synthetic offers, live structured intake with source evidence and review, calculator-grounded multilingual explanation, sandbox Invoicing v2 issuance/share/check, persistent verification and duplicate-credit prevention, and focused test/setup documentation. Legacy chat is preserved in `GeneralAdvisor.jsx`; OpenAI initialization is lazy and `.env` loads before router imports so provider setup does not prevent the deterministic demo from starting.
 
 See [the under-three-minute recording script](docs/RECORDING_SCRIPT.md) and [the actual-run handoff](docs/HANDOFF.md). Publishing the repository and uploading the recording remain with the owner. The [hackathon rules](https://paypalaihackathon.devpost.com/rules) are linked for the owner’s submission review.
+
+
+## Free guided-only hosted demo
+
+The `render.yaml` blueprint runs the FastAPI backend on Render's free web service without AI or PayPal credentials. Its SQLite file is temporary: do not use it for a real PayPal invoice. GitHub Pages builds a guided-only frontend when repository variable `DEMO_API_URL` contains the deployed backend origin, for example `https://your-service.onrender.com` (no trailing slash). In GitHub Settings > Pages select GitHub Actions. Then run the Deploy frontend to GitHub Pages workflow. It skips deployment until the backend variable is configured. The public site uses `/ArthaGuide/` as its asset base. Live AI chat and PayPal payment UI are disabled in this build; the sample calculator and dashboard still work. Render free services can sleep and take time to wake.

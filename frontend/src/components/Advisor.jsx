@@ -108,10 +108,10 @@ function RepaymentPlan({ context, onReturn }) {
   const projectMatchesDeposit = !context.project_usd_minor || context.project_usd_minor === 40000;
   const configured = boot && projectMatchesDeposit && Object.values(boot.paypal_config).every(Boolean);
   const blocked = Boolean(busy) || calculating;
-  return <main className="fa-page"><div className="fa-shell">
+  return <main className={'fa-page' + (import.meta.env.VITE_GUIDED_ONLY === 'true' ? ' guided-only' : '')}><div className="fa-shell">
     <button className="loan-back-chat" onClick={() => onReturn({ ...context, cash_minor: cash, late, availability_date: available, review_id: review })}>← Back to our conversation</button>
     <>{result?.context_gaps?.length > 0 && <div className="fa-minimum"><strong>Financial context needs review</strong><p>{result.context_gaps[0]}</p><button onClick={() => onReturn({ ...context, cash_minor: cash, late, availability_date: available, review_id: review })}>Return to chat and complete the review →</button></div>}</>
-    <header className="fa-header"><div><div className="fa-eyebrow"><span className="fa-logo">a</span> ARTHA GUIDE <span>/</span> LOAN ADVISER</div><h1>{w.title}</h1><p>A laptop repair today. A client payment later. Let’s make the numbers work.</p></div><span className="fa-demo"><span /> PAYPAL SANDBOX DEMO</span></header>
+    <header className="fa-header"><div><div className="fa-eyebrow"><span className="fa-logo">a</span> ARTHA GUIDE <span>/</span> LOAN ADVISER</div><h1>{w.title}</h1><p>A laptop repair today. A client payment later. Let’s make the numbers work.</p></div><span className="fa-demo"><span /> {import.meta.env.VITE_GUIDED_ONLY === 'true' ? 'GUIDED SAMPLE' : 'PAYPAL SANDBOX DEMO'}</span></header>
     <nav className="fa-tabs" aria-label="Adviser workflow"><button className="active">Repair & repayment</button><button onClick={() => setTab('general')}>General loan advice ↗</button><span>Sample freelancer · India · INR</span></nav>
     {error && <div className="fa-error" role="alert"><strong>Something needs attention</strong><p>{error}</p><button onClick={() => setError('')} aria-label="Dismiss error">×</button></div>}
     {!boot && <div className="fa-panel fa-loading">{error ? 'Waiting for the local backend…' : 'Getting your plan ready…'}</div>}
