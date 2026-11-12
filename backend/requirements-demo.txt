@@ -1,0 +1,7 @@
+# Small demo path: no MongoDB, Qdrant, embedding model, or Gemini required.
+fastapi>=0.115,<1
+uvicorn>=0.32,<1
+pydantic>=2.10,<3
+httpx>=0.27,<1
+python-dotenv>=1,<2
+openai>=1.54,<3
